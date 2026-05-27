@@ -10,23 +10,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #F5EDCF;
-    --yellow: #F0E4A8;
-    --brown: #3D2B1F;
-    --brown-light: #6B4F3A;
-    --brown-mid: #8C6E54;
-    --terracotta: #C67D4A;
-    --olive: #7A8B4A;
-    --olive-light: #A3B56B;
-    --petal-pink: #E8A0B4;
-    --petal-orange: #E8955A;
+    --cream: #F2E8CC;
+    --yellow: #D4A937;
+    --yellow-light: #E8D27A;
+    --yellow-soft: #DCC56A;
+    --mustard: #B89230;
+    --brown: #6B4423;
+    --brown-dark: #3E2611;
+    --brown-light: #8B6840;
+    --brown-mid: #8B6840;
+    --terracotta: #B47A3A;
+    --olive: #A38940;
+    --olive-light: #C9B05A;
+    --sunflower-petal: #F2C12C;
+    --sunflower-inner: #E89817;
+    --sunflower-center: #6B3E18;
+    --sunflower-core: #3A2008;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     background: var(--cream);
-    color: var(--brown);
+    color: var(--brown-dark);
     font-family: 'DM Sans', sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
@@ -62,7 +68,7 @@
 
   .bg-circle:nth-child(1) {
     width: 600px; height: 600px;
-    background: var(--terracotta);
+    background: var(--yellow);
     top: -200px; right: -150px;
     animation: drift1 20s ease-in-out infinite;
   }
@@ -74,7 +80,7 @@
   }
   .bg-circle:nth-child(3) {
     width: 250px; height: 250px;
-    background: var(--petal-pink);
+    background: var(--brown-light);
     top: 40%; left: 60%;
     animation: drift3 18s ease-in-out infinite;
   }
@@ -110,30 +116,35 @@
     animation: fadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
+  /* font-size = visible cap height of the wordmark.
+     fl.png / res.png are pre-trimmed to their glyph bounds. */
   .wordmark h1 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: clamp(4rem, 14vw, 10rem);
-    letter-spacing: 0.04em;
+    font-size: clamp(4.5rem, 15vw, 9rem);
     line-height: 1;
-    color: var(--brown);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0;
+    gap: 0.08em;
   }
 
-  .letter { display: inline-block; }
+  .letter-img {
+    height: 1em;
+    width: auto;
+    display: block;
+    flex-shrink: 0;
+    filter: drop-shadow(0.04em 0.06em 0 var(--brown));
+  }
 
-  /* The flower O */
+  /* The flower O — diameter ≈ cap height of the letters. */
   .flower-o {
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 0.85em;
-    height: 0.85em;
+    width: 1em;
+    height: 1em;
     flex-shrink: 0;
+    filter: drop-shadow(0.04em 0.06em 0 var(--brown));
   }
 
   .flower-o svg {
@@ -458,7 +469,7 @@
     position: fixed;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.15;
+    opacity: 0.35;
   }
 
   .scatter-flower:nth-child(1) { top: 15%; left: 8%; width: 30px; animation: bob 6s ease-in-out infinite; }
@@ -502,37 +513,61 @@
 
 <!-- Scattered decorative flowers -->
 <svg class="scatter-flower" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-  <g fill="#3D2B1F"><ellipse cx="20" cy="12" rx="5" ry="10" /><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(60 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(120 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(180 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(240 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(300 20 20)"/><circle cx="20" cy="20" r="4" fill="#C67D4A"/></g>
+  <g fill="#D4A937"><ellipse cx="20" cy="12" rx="5" ry="10" /><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(60 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(120 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(180 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(240 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(300 20 20)"/><circle cx="20" cy="20" r="4" fill="#F2E8CC"/></g>
 </svg>
 <svg class="scatter-flower" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-  <g fill="#3D2B1F"><ellipse cx="20" cy="12" rx="5" ry="10" /><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(72 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(144 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(216 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(288 20 20)"/><circle cx="20" cy="20" r="4" fill="#C67D4A"/></g>
+  <g fill="#6B4423"><ellipse cx="20" cy="12" rx="5" ry="10" /><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(72 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(144 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(216 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(288 20 20)"/><circle cx="20" cy="20" r="4" fill="#F2E8CC"/></g>
 </svg>
 <svg class="scatter-flower" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-  <g fill="#3D2B1F"><ellipse cx="20" cy="14" rx="4" ry="8" /><ellipse cx="20" cy="14" rx="4" ry="8" transform="rotate(60 20 20)"/><ellipse cx="20" cy="14" rx="4" ry="8" transform="rotate(120 20 20)"/><ellipse cx="20" cy="14" rx="4" ry="8" transform="rotate(180 20 20)"/><ellipse cx="20" cy="14" rx="4" ry="8" transform="rotate(240 20 20)"/><ellipse cx="20" cy="14" rx="4" ry="8" transform="rotate(300 20 20)"/><circle cx="20" cy="20" r="3" fill="#E8A0B4"/></g>
+  <g fill="#E8D27A"><ellipse cx="20" cy="14" rx="4" ry="8" /><ellipse cx="20" cy="14" rx="4" ry="8" transform="rotate(60 20 20)"/><ellipse cx="20" cy="14" rx="4" ry="8" transform="rotate(120 20 20)"/><ellipse cx="20" cy="14" rx="4" ry="8" transform="rotate(180 20 20)"/><ellipse cx="20" cy="14" rx="4" ry="8" transform="rotate(240 20 20)"/><ellipse cx="20" cy="14" rx="4" ry="8" transform="rotate(300 20 20)"/><circle cx="20" cy="20" r="3" fill="#F2E8CC"/></g>
 </svg>
 <svg class="scatter-flower" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-  <g fill="#3D2B1F"><ellipse cx="20" cy="12" rx="5" ry="10" /><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(90 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(180 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(270 20 20)"/><circle cx="20" cy="20" r="4" fill="#C67D4A"/></g>
+  <g fill="#A38940"><ellipse cx="20" cy="12" rx="5" ry="10" /><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(90 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(180 20 20)"/><ellipse cx="20" cy="12" rx="5" ry="10" transform="rotate(270 20 20)"/><circle cx="20" cy="20" r="4" fill="#F2E8CC"/></g>
 </svg>
 
 <div class="page">
   <div class="wordmark">
-    <h1>
-      <span class="letter">F</span><span class="letter">L</span><!--
-      --><span class="flower-o">
+    <h1 aria-label="Flores">
+      <img class="letter-img" src="assets/fl.png" alt="" aria-hidden="true"><!--
+      --><span class="flower-o" aria-hidden="true">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <g class="petal">
-            <ellipse cx="50" cy="24" rx="12" ry="22" fill="var(--brown)" opacity="0.9"/>
-            <ellipse cx="50" cy="24" rx="12" ry="22" fill="var(--brown)" opacity="0.9" transform="rotate(60 50 50)"/>
-            <ellipse cx="50" cy="24" rx="12" ry="22" fill="var(--brown)" opacity="0.9" transform="rotate(120 50 50)"/>
-            <ellipse cx="50" cy="24" rx="12" ry="22" fill="var(--brown)" opacity="0.9" transform="rotate(180 50 50)"/>
-            <ellipse cx="50" cy="24" rx="12" ry="22" fill="var(--brown)" opacity="0.9" transform="rotate(240 50 50)"/>
-            <ellipse cx="50" cy="24" rx="12" ry="22" fill="var(--brown)" opacity="0.9" transform="rotate(300 50 50)"/>
+            <!-- All petals identical length; two interleaved rings, offset 15° -->
+            <g fill="var(--sunflower-petal)">
+              <ellipse cx="50" cy="20" rx="5.5" ry="18"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(30 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(60 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(90 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(120 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(150 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(180 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(210 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(240 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(270 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(300 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(330 50 50)"/>
+            </g>
+            <g fill="var(--sunflower-inner)">
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(15 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(45 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(75 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(105 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(135 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(165 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(195 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(225 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(255 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(285 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(315 50 50)"/>
+              <ellipse cx="50" cy="20" rx="5.5" ry="18" transform="rotate(345 50 50)"/>
+            </g>
           </g>
-          <circle cx="50" cy="50" r="10" fill="var(--terracotta)"/>
-          <circle cx="50" cy="50" r="5" fill="var(--yellow)"/>
+          <!-- Center: brown disk with darker core (does not spin) -->
+          <circle cx="50" cy="50" r="15" fill="var(--sunflower-center)"/>
+          <circle cx="50" cy="50" r="8" fill="var(--sunflower-core)"/>
         </svg>
       </span><!--
-      --><span class="letter">R</span><span class="letter">E</span><span class="letter">S</span>
+      --><img class="letter-img" src="assets/res.png" alt="" aria-hidden="true">
     </h1>
   </div>
 
@@ -586,7 +621,7 @@
   <div class="divider">
     <span class="divider-line"></span>
     <svg class="divider-flower" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" >
-      <g fill="var(--brown-mid)"><ellipse cx="20" cy="12" rx="4" ry="9" /><ellipse cx="20" cy="12" rx="4" ry="9" transform="rotate(60 20 20)"/><ellipse cx="20" cy="12" rx="4" ry="9" transform="rotate(120 20 20)"/><ellipse cx="20" cy="12" rx="4" ry="9" transform="rotate(180 20 20)"/><ellipse cx="20" cy="12" rx="4" ry="9" transform="rotate(240 20 20)"/><ellipse cx="20" cy="12" rx="4" ry="9" transform="rotate(300 20 20)"/><circle cx="20" cy="20" r="3.5" fill="var(--terracotta)"/></g>
+      <g fill="var(--yellow)"><ellipse cx="20" cy="12" rx="4" ry="9" /><ellipse cx="20" cy="12" rx="4" ry="9" transform="rotate(60 20 20)"/><ellipse cx="20" cy="12" rx="4" ry="9" transform="rotate(120 20 20)"/><ellipse cx="20" cy="12" rx="4" ry="9" transform="rotate(180 20 20)"/><ellipse cx="20" cy="12" rx="4" ry="9" transform="rotate(240 20 20)"/><ellipse cx="20" cy="12" rx="4" ry="9" transform="rotate(300 20 20)"/><circle cx="20" cy="20" r="3.5" fill="var(--brown)"/></g>
     </svg>
     <span class="divider-line"></span>
   </div>
@@ -639,7 +674,6 @@
     } else {
       ctaContainer.innerHTML =
         '<div class="cta-pill">' +
-          '<span class="dot"></span>' +
           '<span>Coming soon</span>' +
         '</div>';
     }
