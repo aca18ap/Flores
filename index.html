@@ -179,6 +179,7 @@
   /* CTA pill — shared styles for both states */
   .cta-pill {
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
     gap: 0.6rem;
     border: 1.5px solid var(--brown);
@@ -198,14 +199,13 @@
     cursor: default;
   }
 
-  .cta-pill .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--terracotta);
-    animation: pulse 2s ease-in-out infinite;
-    flex-shrink: 0;
+  .cta-sub {
+    font-size: 0.6rem;
+    color: var(--brown-mid);
+    letter-spacing: 0.15em;
+     margin-top: -0.2rem;
   }
+
 
   /* Pre-release: not a link */
   .cta-pill:not(a):hover {
@@ -676,6 +676,7 @@
       ctaContainer.innerHTML =
         '<div class="cta-pill">' +
           '<span>Coming soon</span>' +
+          '<span class="cta-sub">exclusively on Bandcamp</span>' +
         '</div>';
     }
   }
