@@ -406,6 +406,10 @@
   .contact {
     text-align: center;
     animation: fadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    justify-content: center;
   }
 
   .contact a {
@@ -636,7 +640,7 @@
       ctaContainer.innerHTML =
         '<div class="cta-pill">' +
           '<span class="dot"></span>' +
-          '<span>Album coming soon</span>' +
+          '<span>Coming soon</span>' +
         '</div>';
     }
   }
